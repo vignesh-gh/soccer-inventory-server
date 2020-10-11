@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: soccer-inventory
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: vigneshp
+Implementation-Vendor-Id: com.soccer-inventory
+Build-Jdk: 1.8.0_171
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+
