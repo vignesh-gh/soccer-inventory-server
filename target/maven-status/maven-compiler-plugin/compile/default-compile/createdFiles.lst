@@ -1,7 +1,6 @@
-com/soccer_inventory/soccer_inventory/controller/InventoryController.class
 com/soccer_inventory/soccer_inventory/seq/VariantSeqGenerator.class
+com/soccer_inventory/soccer_inventory/service/StockServiceImpl.class
 com/soccer_inventory/soccer_inventory/Dao/VariantRepoistory.class
-com/soccer_inventory/soccer_inventory/Dao/ProductDaoImpl.class
 com/soccer_inventory/soccer_inventory/Dao/VariantDao.class
 com/soccer_inventory/soccer_inventory/Dao/VariantDaoImpl.class
 com/soccer_inventory/soccer_inventory/service/VariantServiceImpl.class
@@ -12,6 +11,14 @@ com/soccer_inventory/soccer_inventory/service/VariantService.class
 com/soccer_inventory/soccer_inventory/Dao/ProductDao.class
 com/soccer_inventory/soccer_inventory/service/ProductServiceImpl.class
 com/soccer_inventory/soccer_inventory/model/Variant.class
+com/soccer_inventory/soccer_inventory/Dao/StockDaoImpl.class
 com/soccer_inventory/soccer_inventory/Dao/ProdcutRepoistory.class
-com/soccer_inventory/soccer_inventory/Dao/ProductRepoImpl.class
 com/soccer_inventory/soccer_inventory/service/ProductService.class
+com/soccer_inventory/soccer_inventory/controller/InventoryController.class
+com/soccer_inventory/soccer_inventory/Dao/StockDao.class
+com/soccer_inventory/soccer_inventory/Dao/StockRepoistory.class
+com/soccer_inventory/soccer_inventory/Dao/ProductDaoImpl.class
+com/soccer_inventory/soccer_inventory/service/StcokService.class
+com/soccer_inventory/soccer_inventory/seq/StockSeqGenerator.class
+com/soccer_inventory/soccer_inventory/Dao/ProductRepoImpl.class
+com/soccer_inventory/soccer_inventory/model/Stock.class

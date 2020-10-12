@@ -1,5 +1,6 @@
 package com.soccer_inventory.soccer_inventory.controller;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -16,9 +17,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.soccer_inventory.soccer_inventory.model.Product;
+import com.soccer_inventory.soccer_inventory.model.Stock;
 import com.soccer_inventory.soccer_inventory.model.Variant;
 import com.soccer_inventory.soccer_inventory.service.ProductService;
+import com.soccer_inventory.soccer_inventory.service.StcokService;
+import com.soccer_inventory.soccer_inventory.service.StcokService;
 import com.soccer_inventory.soccer_inventory.service.VariantService;
 
 @RestController
@@ -30,6 +36,9 @@ public class InventoryController {
 	
 	@Autowired
 	public VariantService variantService;
+	
+	@Autowired
+	private StcokService stockService;
 	
 	@PostMapping("inventory/addProduct")
 	public ResponseEntity<Product> addProduct(@RequestBody Product product) {
@@ -81,13 +90,13 @@ public class InventoryController {
 	
 	@PostMapping("inventory/addVariant")
 	public ResponseEntity<Variant> addVariant(@RequestBody Variant variant) {
-	
+		System.out.println(variant);
 		Variant res=variantService.addVariant(variant);	
 		return new ResponseEntity<Variant>(res, HttpStatus.OK);
 		
 	}
 	
-	@GetMapping("inventory/getVariants")
+	@GetMapping("inventory/getAllVariants")
 	public List<Variant> getAllVariants() {
 		
 		return variantService.getAllVariant();
@@ -117,20 +126,40 @@ public class InventoryController {
 		
 	}
 	
-	@GetMapping("inventory/getAllColors")
-	public List<String> getAllColorsByNameandBrand(@RequestParam("name") String name,
-			@RequestParam("brand") String brand){
+	@GetMapping("inventory/getAllColors/{id}")
+	public List<String> getAllColorsByNProductId(@PathVariable int id){
 		
-		List<String> list= variantService.getAllColorsByNameandVariant(name, brand);
+		List<String> list= variantService.getAllColorsByProductId(id);
 		return list;
 	}
 	
-	@GetMapping("inventory/getAllSizes")
-	public List<String> getAllSizesByNameandBrand(@RequestParam("name") String name,
-			@RequestParam("brand") String brand){
+	@GetMapping("inventory/getAllSizes/{id}")
+	public List<String> getAllSizesByProductId(@PathVariable int id){
 		
-		List<String> list= variantService.getAllSizesByNameandVariant(name, brand);
+		List<String> list= variantService.getAllSizesByProductId(id);
 		return list;
+	}
+	
+	@PostMapping("inventory/addNewStock")
+	public ResponseEntity<Stock> addNewStock(@RequestBody Stock stock) throws JsonParseException, JsonMappingException, IOException {
+		System.out.println("Stocksssss"+stock);
+		Stock res=this.stockService.addNewStock(stock);
+		
+		return new ResponseEntity(res,HttpStatus.OK);
+	}
+	
+	@GetMapping("inventory/getAllStocks")
+	public List<Stock> getAllStocks(){
+		
+		List<Stock> stocks=stockService.getAllStocks();
+		
+		return stocks;
+	}
+	
+	@GetMapping("inventory/getStock/{id}")
+	public Stock getStockByVariantId(@PathVariable int id) throws JsonParseException, JsonMappingException, IOException {
+		
+		return stockService.getStockByVariantId(id);
 	}
 	
 	

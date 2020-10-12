@@ -2,6 +2,7 @@ package com.soccer_inventory.soccer_inventory.model;
 
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.Id;
@@ -22,6 +23,8 @@ public class Product {
 	public String created_date;
 	
 	public String last_modified_date;
+	
+	public List<Variant> variants;
 
 	public int getId() {
 		return id;

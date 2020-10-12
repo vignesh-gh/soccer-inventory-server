@@ -20,6 +20,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 
 import com.soccer_inventory.soccer_inventory.model.Product;
+import com.soccer_inventory.soccer_inventory.model.Stock;
 
 import ch.qos.logback.core.filter.Filter;
 
@@ -54,6 +55,11 @@ public class ProductDaoImpl implements ProductDao {
 			product=doc.toJson();
 		}
 		return  product;
+	}
+
+	public Stock getStockByVarinatId(int id) {
+		
+		return null;
 	}
 
 
